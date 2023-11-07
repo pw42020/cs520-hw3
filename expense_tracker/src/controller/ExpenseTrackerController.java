@@ -31,12 +31,11 @@ public class ExpenseTrackerController {
    * Removes the last transaction from the list of transactions
    * from both the model and the view.
    * 
-   * @return
+   * @return boolean true for success, false for failure
    */
   public boolean undoLastTransaction() {
     boolean removed = model.removeLastTransaction();
     if (removed) {
-      System.out.println(model.getTransactions().toString());
       view.refreshTable(model.getTransactions());
     }
     return removed;
